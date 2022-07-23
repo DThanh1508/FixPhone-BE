@@ -27,4 +27,6 @@ Route::get('/products/{id}',[APIController::class,'getProductDetail']);
 Route::get('/versions',[APIController::class,'version']);
 
 Route::get('/customers',[APIController::class,'customer']);
+Route::DELETE('/delete-product/{id}',[APIController::class,'deleteProduct']);
+Route::DELETE('/delete-customer/{id}',[APIController::class,'deleteCustomer']);
 

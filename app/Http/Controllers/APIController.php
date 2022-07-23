@@ -98,8 +98,28 @@ class APIController extends Controller
     /**
      *
      */
-    public function destroy($id)
+    public function deleteProduct($id)
     {
-        //
+        $products = Product::find($id);
+        $linkImage = public_path('images/') . $products->image;
+        //Xoa luon anh trong thu muc, neu ko co cau lenh nay thi khi xoa anh van con trong thu muc
+        // if (File::exists($linkImage)) {
+        //     File::delete($linkImage);
+        // }
+        $products->delete();
+        return 1;
+        // return redirect()->route('cars.index')->with('success', 'Bạn đã xóa thành công');
+    }
+
+    public function deleteCustomer($id)
+    {
+        $customers = Customer::find($id);
+        //Xoa luon anh trong thu muc, neu ko co cau lenh nay thi khi xoa anh van con trong thu muc
+        // if (File::exists($linkImage)) {
+        //     File::delete($linkImage);
+        // }
+        $customers->delete();
+        return 2;
+        // return redirect()->route('cars.index')->with('success', 'Bạn đã xóa thành công');
     }
 }
